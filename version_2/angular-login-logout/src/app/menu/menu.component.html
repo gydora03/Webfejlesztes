@@ -1,0 +1,19 @@
+<header>
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+        <div><a href="https://www.javaguides.net" class="navbar-brand">JavaGuides</a></div>
+        <ul class="navbar-nav navbar-collapse justify-content-end">
+            <!-- <li>
+                <a *ngIf="!isLoggedIn" class="nav-link" href="/login">Login</a>
+            </li>-->
+          <li class="nav-item ">
+            <a routerLink="view-guess" (click)="toGuessList()" class="nav-link" href="/guess-list" class="btn btn-primary active" role="button" >View Guesses</a>
+          </li>&nbsp;
+          <li class="nav-item">
+            <a  routerLink="add-guess" (click)="toAddGuess()" class="nav-link" href="/add-guess" class="btn btn-primary active" role="button" >Add Guess</a>
+          </li>
+          <li>
+            <a *ngIf="isLoggedIn" class="nav-link" href="/logout" (click)=handleLogout()>Logout</a>
+          </li>
+        </ul>
+    </nav>
+  </header>

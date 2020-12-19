@@ -1,0 +1,64 @@
+<app-menu></app-menu>
+
+
+<h3>Add a new Guess</h3>
+<div class="row">
+  <div class="col-sm-4"></div>
+  <div class="col-sm-4" >
+    <div [hidden]="submitted" style="width: 400px;">
+      <form [formGroup]="guesssaveform" #saveguess (ngSubmit)="saveGuess(saveGuess)">
+          <div class="form-group">
+              <label for="name">Guess Name</label>
+              <input type="text" class="form-control"  formControlName="guess_name" data-toggle="tooltip"
+                 data-placement="right" title="Enter Guess Name" >
+              <div class="alert alert-danger" *ngIf = "(GuessName.touched) && (GuessName.invalid)"
+                style="margin-top: 5px;">
+                  <span *ngIf="GuessName.errors.required">Guess Name is Required</span>
+                    <span *ngIf = "GuessName.errors.minlength">
+                        MinLength Error
+                    </span>
+                </div>
+          </div>
+
+          <div class="form-group">
+              <label for="name">Guess Email</label>
+              <input type="text" class="form-control" formControlName="guess_email"
+                data-toggle="tooltip" data-placement="right" title="Enter Guess Email">
+                <div class="alert alert-danger" *ngIf = "(GuessEmail.touched) && (GuessEmail.invalid)"
+                style="margin-top: 5px;">
+                  <span *ngIf="GuessEmail.errors.required">Guess Email is Required</span>
+                    <span *ngIf = "GuessEmail.errors.email">
+                        Invalid Email Format
+                    </span>
+                </div>
+          </div>
+
+          <div class="form-group">
+              <label for="age">Guess Age</label>
+                <select class="form-control" formControlName="guess_age" data-toggle="tooltip"
+                      data-placement="right" title="Select Guess Age">
+                    <option value="null">--Select Age--</option>
+                  <option value="Child">Child</option>
+                  <option value="Adult">Adult</option>
+                  <option value="Pensioner">Pensioner</option>
+                </select>
+          </div>
+
+          <button type="submit" class="btn btn-success">Submit</button>
+      </form>
+  </div>
+  </div>
+  <div class="col-sm-4"></div>
+</div>
+<div class="row">
+  <div class="col-sm-4"></div>
+  <div class="col-sm-4">
+      <div [hidden]="!submitted">
+         <h4>Guess Added SuccessFully!</h4>
+         <button (click)="addGuessForm()" class='btn btn-primary'>Add More Guess</button>
+      </div>
+  </div>
+  <div class="col-sm-4"></div>
+</div>
+
+
